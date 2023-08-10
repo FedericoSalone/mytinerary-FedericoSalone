@@ -123,7 +123,7 @@ const Hero = () => {
                     </Link>
                 </div>
 
-                {/* Modal para mostrar la imagen ampliada */}
+            
                 {isImageModalOpen && (
                     <div className="fixed inset-0 flex justify-center items-center z-50 bg-black bg-opacity-50">
                         <div className="bg-white p-8 rounded-lg shadow-lg max-w-3xl">
