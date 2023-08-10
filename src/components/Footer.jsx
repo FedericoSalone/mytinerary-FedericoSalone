@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 const Footer = () => {
     const handleSubscribe = () => {
-        // Aquí puedes agregar la lógica para manejar la suscripción al boletín
+        
         console.log('Usuario suscrito');
     };
 
