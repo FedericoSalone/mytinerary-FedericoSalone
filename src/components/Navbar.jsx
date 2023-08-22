@@ -15,7 +15,7 @@ const Navbar = () => {
         <div className='flex items-center'>
           <Link to="/" className='flex items-center'>
             <img src='public/iconheader.png' alt='Icon' className='w-16 h-16 mr-2' />
-            <h2 className='text-black font-bold text-3xl'>My Tinerary</h2>
+            <h2 className='text-black font-bold text-3xl'>MyTinerary</h2>
           </Link>
         </div>
 
