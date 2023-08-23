@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { FiSearch } from 'react-icons/fi';
 import { BiError } from 'react-icons/bi';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import ButtonCities from './ButtonCities'
 
 const Cities = () => {
     const [filter, setFilter] = useState('');
@@ -50,29 +50,26 @@ const Cities = () => {
                 ) : (
                     <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
                         {filteredCities.map(city => (
-                            <div
-                                key={city.name}
-                                className="border rounded-lg overflow-hidden transition duration-300 transform hover:scale-105 hover:opacity-90"
-                            >
-                                <div className="h-64 overflow-hidden relative">
-                                    <img src={city.img} alt={city.name} className="w-full h-full object-cover" />
-                                    <div className="absolute inset-0 flex items-center justify-center text-white text-center p-4 bg-black bg-opacity-50 transition duration-300 opacity-0 hover:opacity-100">
-                                        <div>
-                                            <h3 className="text-lg font-semibold mb-2">
-                                                {city.name}
-                                            </h3>
-                                            <p className="text-gray-300 mb-2">
-                                                {city.country}
-                                            </p>
-                                            <Link to="/under-construction" className="px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-full flex items-center justify-center">
-                                                <FiSearch className="mr-1" />
-                                                View More
-                                            </Link>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        ))}
+    <div
+        key={city.name}
+        className="border rounded-lg overflow-hidden transition duration-300 transform hover:scale-105 hover:opacity-90"
+    >
+        <div className="h-64 overflow-hidden relative">
+            <img src={city.img} alt={city.name} className="w-full h-full object-cover" />
+            <div className="absolute inset-0 flex items-center justify-center text-white text-center p-4 bg-black bg-opacity-50 transition duration-300 opacity-0 hover:opacity-100">
+                <div>
+                    <h3 className="text-lg font-semibold mb-2">
+                        {city.name}
+                    </h3>
+                    <p className="text-gray-300 mb-2">
+                        {city.country}
+                    </p>
+                    <ButtonCities id={city._id} />
+                </div>
+            </div>
+        </div>
+    </div>
+))}
                     </div>
                 )}
             </div>
@@ -81,10 +78,6 @@ const Cities = () => {
 }
 
 export default Cities;
-
-
-
-
 
 
 
