@@ -5,8 +5,7 @@ import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import Footer from "./components/Footer";
 import Cities from "./pages/Index/Cities";
-import UnderConstruction from './pages/Index/UnderConstruccion';
-
+import CityDetails from "./pages/Index/CitiesDetails"
 
 function App() {
   return (
@@ -16,7 +15,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Hero />} />
           <Route path="/cities" element={<Cities />} />
-          <Route path="/under-construction/:id" element={<UnderConstruction />} />
+          <Route path="/citiesdetails/:id" element={< CityDetails />} />
         </Routes>
         <Footer />
       </Router>
@@ -25,5 +24,6 @@ function App() {
 }
 
 export default App;
+
 
 

@@ -1,23 +1,23 @@
 // eslint-disable-next-line no-unused-vars
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { FiSearch } from 'react-icons/fi';
 import { BiError } from 'react-icons/bi';
-import axios from 'axios';
-import ButtonCities from './ButtonCities'
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchCitiesAsync, setFilterAsync } from '../../redux/actions/citiesActions';
+import ButtonCities from './ButtonCities';
 
 const Cities = () => {
-    const [filter, setFilter] = useState('');
-    const [cities, setCities] = useState([]);
+    const dispatch = useDispatch();
+    const filter = useSelector(state => state.cities.filter);
+    const cities = useSelector(state => state.cities.cities);
 
     const handleFilterChange = (event) => {
-        setFilter(event.target.value);
+        dispatch(setFilterAsync(event.target.value));
     };
 
     useEffect(() => {
-        axios.get('http://localhost:3000/api/cities')
-            .then(response => setCities(response.data))
-            .catch(error => console.error('Error fetching cities:', error));
-    }, []);
+        dispatch(fetchCitiesAsync());
+    }, [dispatch]);
 
     const filteredCities = cities.filter(city =>
         city.name.toLowerCase().startsWith(filter.toLowerCase())
@@ -50,26 +50,26 @@ const Cities = () => {
                 ) : (
                     <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
                         {filteredCities.map(city => (
-    <div
-        key={city.name}
-        className="border rounded-lg overflow-hidden transition duration-300 transform hover:scale-105 hover:opacity-90"
-    >
-        <div className="h-64 overflow-hidden relative">
-            <img src={city.img} alt={city.name} className="w-full h-full object-cover" />
-            <div className="absolute inset-0 flex items-center justify-center text-white text-center p-4 bg-black bg-opacity-50 transition duration-300 opacity-0 hover:opacity-100">
-                <div>
-                    <h3 className="text-lg font-semibold mb-2">
-                        {city.name}
-                    </h3>
-                    <p className="text-gray-300 mb-2">
-                        {city.country}
-                    </p>
-                    <ButtonCities id={city._id} />
-                </div>
-            </div>
-        </div>
-    </div>
-))}
+                            <div
+                                key={city.name}
+                                className="border rounded-lg overflow-hidden transition duration-300 transform hover:scale-105 hover:opacity-90"
+                            >
+                                <div className="h-64 overflow-hidden relative">
+                                    <img src={city.img} alt={city.name} className="w-full h-full object-cover" />
+                                    <div className="absolute inset-0 flex items-center justify-center text-white text-center p-4 bg-black bg-opacity-50 transition duration-300 opacity-0 hover:opacity-100">
+                                        <div>
+                                            <h3 className="text-lg font-semibold mb-2">
+                                                {city.name}
+                                            </h3>
+                                            <p className="text-gray-300 mb-2">
+                                                {city.country}
+                                            </p>
+                                            <ButtonCities id={city._id} />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
                     </div>
                 )}
             </div>
@@ -78,6 +78,12 @@ const Cities = () => {
 }
 
 export default Cities;
+
+
+
+
+
+
 
 
 
