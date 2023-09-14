@@ -5,7 +5,9 @@ import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import Footer from "./components/Footer";
 import Cities from "./pages/Index/Cities";
-import CityDetails from "./pages/Index/CitiesDetails"
+import CityDetails from "./pages/Index/CitiesDetails";
+import SignUp from "./pages/Index/SingUp";
+import SignIn from "./pages/Index/SingIn";
 
 function App() {
   return (
@@ -15,7 +17,9 @@ function App() {
         <Routes>
           <Route path="/" element={<Hero />} />
           <Route path="/cities" element={<Cities />} />
-          <Route path="/citiesdetails/:id" element={< CityDetails />} />
+          <Route path="/citiesdetails/:id" element={<CityDetails />} />
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/signin" element={<SignIn />} /> 
         </Routes>
         <Footer />
       </Router>
@@ -24,6 +28,8 @@ function App() {
 }
 
 export default App;
+
+
 
 
 

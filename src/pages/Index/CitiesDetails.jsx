@@ -36,12 +36,15 @@ const CityDetails = () => {
                                     <h3 className="text-2xl font-semibold mb-2">
                                         {cityData.name}
                                     </h3>
+                                    <p>{cityData.description}</p>
+                                    <p>Country: {cityData.country}</p>
+                                    <p>Divisa: {cityData.divisa}</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 )}
-                
+
                 <Itineraries itineraries={itineraries} />
                 <Link
                     to="/cities"
