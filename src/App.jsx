@@ -9,6 +9,7 @@ import CityDetails from "./pages/Index/CitiesDetails";
 import SignUp from "./pages/Index/SingUp";
 import SignIn from "./pages/Index/SingIn";
 
+
 function App() {
   return (
     <div>

@@ -2,11 +2,9 @@
 import React, { useRef } from "react";
 import { useDispatch } from "react-redux";
 import { userSignUp } from "../../redux/actions/userActions";
-import { GoogleOAuthProvider, GoogleLogin } from '@react-oauth/google';
+import { GoogleOAuthProvider, GoogleLogin } from "@react-oauth/google";
 import { Link } from "react-router-dom";
 import jwtDecode from "jwt-decode";
-
-
 
 const SignUp = () => {
     const dispatch = useDispatch();
@@ -36,14 +34,12 @@ const SignUp = () => {
         dispatch(userSignUp(formData))
             .unwrap()
             .then(() => {
-
                 firstNameRef.current.value = "";
                 lastNameRef.current.value = "";
                 emailRef.current.value = "";
                 passwordRef.current.value = "";
                 photoURLRef.current.value = "";
                 countryRef.current.value = "";
-
 
                 message.current.textContent = "";
             })
@@ -80,7 +76,6 @@ const SignUp = () => {
 
             if (response.ok) {
                 console.log("Usuario registrado en la base de datos");
-
             } else {
                 console.error("Error al registrar al usuario en la base de datos");
             }
@@ -88,13 +83,6 @@ const SignUp = () => {
             console.error("Error al enviar la solicitud al servidor", error);
         }
     };
-
-
-
-
-
-
-
 
     return (
         <div className="min-h-screen flex justify-center items-center bg-cover bg-no-repeat bg-center" style={{ backgroundImage: 'url(https://images.pexels.com/photos/302769/pexels-photo-302769.jpeg?auto=compress&cs=tinysrgb&w=1200&h=854&dpr=1)' }}>
@@ -212,6 +200,8 @@ const SignUp = () => {
 };
 
 export default SignUp;
+
+
 
 
 
